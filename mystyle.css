@@ -1,0 +1,35 @@
+body {
+    color: #fff;
+    background-color: #11A27B;
+    /* font-size: 40px; */
+}
+
+.stButton>button{
+    color: #11A27B;
+    /*box-sizing: 5%;*/
+    /*height: 5em;*/
+    width: 100%;
+    /*font-size:50px;*/
+    border: 2px solid;
+    border-radius: 10px;
+    /*padding: 50px;*/
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    text-anchor: center;
+}
+
+/*.stTextInput>div>div>input {*/
+/*    color: #000000;*/
+/*}*/
+
+/*.fullScreenFrame > div {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
