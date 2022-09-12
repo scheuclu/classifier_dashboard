@@ -13,14 +13,48 @@ def plot_train_curves(epoch_data):
     fig.add_trace(trace_precision, secondary_y=True)
     fig.add_trace(trace_recall, secondary_y=True)
     fig.update_layout(
-        go.Layout(yaxis=dict(type='log'))
+        go.Layout(
+            title="Training Curves",
+            titlefont=dict(color="#11A27B"),
+            yaxis=dict(
+                title="loss values",
+                type='log',
+                linecolor='#11A27B',
+                gridcolor='#11A27B',
+                titlefont=dict(color="#11A27B"),
+                tickfont=dict(color="#11A27B"),
+                linewidth=2,
+            ),
+            yaxis2=dict(
+                type='log',
+                linecolor='#11A27B',
+                gridcolor='#11A27B',
+                titlefont=dict(color="#11A27B"),
+                tickfont=dict(color="#11A27B"),
+                linewidth=2
+            ),
+            xaxis=dict(
+                linecolor='#11A27B',
+                gridcolor='#11A27B',
+                titlefont=dict(color="#11A27B"),
+                tickfont=dict(color="#11A27B"),
+                linewidth=2),
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)'
+        )
     )
     return fig
 
 
 def plot_confusion_matrix(cm, labels, title):
-    data = go.Heatmap(z=cm, y=labels, x=labels, colorscale='gray')
+    colorscale=[
+        # Let first 10% (0.1) of the values have color rgb(0, 0, 0)
+        [0, "#273346"],
+        [1.0, "#4B9C29"]
+    ]
+    data = go.Heatmap(z=cm, y=labels, x=labels, colorscale=colorscale, showscale=False)
     annotations = []
+
     for i, row in enumerate(cm):
         for j, value in enumerate(row):
             annotations.append(
@@ -34,11 +68,29 @@ def plot_confusion_matrix(cm, labels, title):
                     "showarrow": False
                 }
             )
-    layout = {
-        "title": title,
-        "xaxis": {"title": "Predicted value"},
-        "yaxis": {"title": "Real value"},
-        "annotations": annotations
-    }
+
+    layout = go.Layout(
+        title="Confusion Matrix",
+        titlefont=dict(color="#11A27B"),
+        annotations=annotations,
+        yaxis=dict(
+            title="loss values",
+            linecolor='#11A27B',
+            gridcolor='#11A27B',
+            titlefont=dict(color="#11A27B"),
+            tickfont=dict(color="#11A27B"),
+            linewidth=2,
+        ),
+        xaxis=dict(
+            linecolor='#11A27B',
+            gridcolor='#11A27B',
+            titlefont=dict(color="#11A27B"),
+            tickfont=dict(color="#11A27B"),
+            linewidth=2),
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)'
+    )
+
     fig = go.Figure(data=data, layout=layout)
+
     return fig

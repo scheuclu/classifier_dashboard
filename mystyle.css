@@ -4,7 +4,26 @@ body {
     /* font-size: 40px; */
 }
 
-.stButton>button{
+h1, h2, h3, h4, p {
+    text-align:center;
+}
+
+hr{
+    height: 1px;
+    background-color: #11A27B;
+    border: none;
+}
+
+h1, h2, h3 {
+    color: #11A27B;
+}
+
+/*.appview-container {*/
+/*    background: rgb(17,17,17);*/
+/*    background: linear-gradient(0deg, rgba(30,30,30,1) 0%, rgba(15,17,22,255) 35%);*/
+/*}*/
+
+.stButton>button, .css-1q8dd3e {
     color: #11A27B;
     /*box-sizing: 5%;*/
     /*height: 5em;*/
@@ -18,15 +37,6 @@ body {
     align-content: center;
     text-anchor: center;
 }
-
-/*.stTextInput>div>div>input {*/
-/*    color: #000000;*/
-/*}*/
-
-/*.fullScreenFrame > div {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*}*/
 
 .center {
     display: block;

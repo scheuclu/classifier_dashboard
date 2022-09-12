@@ -1,5 +1,6 @@
 import pandas as pd
 import torch
+import os
 
 def fix_malefemale(df):
     df["gender"] = df.gender.replace('f', 'female')
@@ -40,14 +41,16 @@ def split_pressure(df):
     return df
 
 
-def read_data():
+def read_data(basepath='.'):
 
-    df_train_info = pd.read_csv('./diabetes_v2/diabetes_train_info.csv', index_col=0)
-    df_train_analysis = pd.read_csv('./diabetes_v2/diabetes_train_analysis.csv', index_col=0)
+    df_train_info = pd.read_csv(
+        os.path.join(basepath,'diabetes_v2/diabetes_train_info.csv'),
+        index_col=0)
+    df_train_analysis = pd.read_csv(os.path.join(basepath,'diabetes_v2/diabetes_train_analysis.csv'), index_col=0)
     df_train = df_train_info.join(df_train_analysis)
 
-    df_test_info = pd.read_csv('./diabetes_v2/diabetes_test_info.csv', index_col=0)
-    df_test_analysis = pd.read_csv('./diabetes_v2/diabetes_test_analysis.csv', index_col=0)
+    df_test_info = pd.read_csv(os.path.join(basepath,'diabetes_v2/diabetes_test_info.csv'), index_col=0)
+    df_test_analysis = pd.read_csv(os.path.join(basepath,'diabetes_v2/diabetes_test_analysis.csv'), index_col=0)
     df_test = df_test_info.join(df_test_analysis)
 
     df_train=(df_train.pipe(fix_malefemale)
