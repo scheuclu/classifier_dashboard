@@ -34,6 +34,7 @@ def plot_train_curves(epoch_data):
                 linewidth=2
             ),
             xaxis=dict(
+                title='epoch',
                 linecolor='#11A27B',
                 gridcolor='#11A27B',
                 titlefont=dict(color="#11A27B"),
@@ -74,7 +75,7 @@ def plot_confusion_matrix(cm, labels, title):
         titlefont=dict(color="#11A27B"),
         annotations=annotations,
         yaxis=dict(
-            title="loss values",
+            title="actual class",
             linecolor='#11A27B',
             gridcolor='#11A27B',
             titlefont=dict(color="#11A27B"),
@@ -82,6 +83,7 @@ def plot_confusion_matrix(cm, labels, title):
             linewidth=2,
         ),
         xaxis=dict(
+            title='predicted class',
             linecolor='#11A27B',
             gridcolor='#11A27B',
             titlefont=dict(color="#11A27B"),
