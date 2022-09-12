@@ -19,9 +19,9 @@ local_css("./mystyle.css")
 st.markdown("""
 # Training a simple classifier
 This app allows you to quickly play around with different parameteres and configurations training this classifier using torch.
-It should also serve as a demo for [streamlit](TODO), a Python dashboarding framework I absolutely love.
+It should also serve as a demo for [streamlit](https://streamlit.io/), a Python dashboarding framework I absolutely love.
 
-Click [here](TODO) to have a look at the raw data.
+Click [here](https://github.com/scheuclu/classifier_dashboard/tree/main/diabetes_v2) to have a look at the raw data.
 
 ---
 
